@@ -1,0 +1,32 @@
+{
+  "name": "api.daylily",
+  "version": "1.0.0",
+  "description": "backend for Daylily app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jacky-Jiaqi-Zhu/api-daylily.git"
+  },
+  "keywords": [
+    "nodejs",
+    "mongodb"
+  ],
+  "author": "Jiaqi Zhu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jacky-Jiaqi-Zhu/api-daylily/issues"
+  },
+  "homepage": "https://github.com/Jacky-Jiaqi-Zhu/api-daylily#readme",
+  "devDependencies": {
+    "body-parser": "^1.19.0",
+    "eslint": "^6.1.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.6.9"
+  },
+  "dependencies": {
+    "dotenv": "^8.0.0"
+  }
+}
