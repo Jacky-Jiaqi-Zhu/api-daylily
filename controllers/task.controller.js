@@ -1,11 +1,5 @@
 const Task = require('../models/task.model');
 
-//Simple version, without validation or sanitation
-exports.test = function (req, res) {
-    res.send('Greetings from the Test controller!');
-};
-
-
 exports.task_create = function(req, res) {
     let task = new Task(
         {
@@ -14,11 +8,11 @@ exports.task_create = function(req, res) {
         }
     );
 
-    task.save(function (err) {
+    task.save(function (err, task) {
         if (err) {
             return next(err);
         }
-        res.send('task Created successfully')
+        res.send(task)
     })
 }
 
@@ -29,10 +23,18 @@ exports.task_details = function (req, res) {
     })
 };
 
-exports.task_update = function (req, res) {
-    Task.findByIdAndUpdate(req.params.id, {$set: req.body}, function (err, task) {
+
+exports.task_list = function (req, res) {
+    Task.find({}, function (err, tasks) {
         if (err) return next(err);
-        res.send('task udpated.');
+        res.send(tasks);
+    })
+};
+
+exports.task_update = function (req, res) {
+    Task.findByIdAndUpdate(req.params.id, {$set: req.body}, { new: true }, function (err, task) {
+        if (err) return next(err);
+        res.send(task);
     });
 };
 
